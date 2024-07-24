@@ -7,9 +7,9 @@ int binarySearch(int* array, int alvo, int inicio, int final);
 int main()
 {
     int numAlvo;
-    int bResult;
+    int bResult = 0;
 
-    int numeros[6] = {60, 50, 25, 10, 2, 1002};
+    int numeros[12] = {60, 50, 25, 10, 2, 1002, 90, 80, 70, 100, 2002};
     int numerosLen = sizeof(numeros)/sizeof(numeros[0]);
 
     printf("Antes do bubble sort: \n");
@@ -22,9 +22,9 @@ int main()
     printf("Digite um numero p/ ser procurado: \n");
     scanf("%d", &numAlvo); 
 
-    bResult = binarySearch(numeros, numAlvo, 0, 5);
+    bResult = binarySearch(numeros, numAlvo, 0, 12);
 
-    if(bResult == 1)
+    if(bResult == -1)
     {
         printf("Numero não encontrado. \n");
     }
@@ -40,7 +40,7 @@ int binarySearch(int* array, int alvo, int inicio, int final)
 {
     int meio;
 
-    //TODO n ta achando o 60
+    //TODO n ta achando alguns n
     while(inicio <= final)
     {
         meio = (inicio + final) / 2;
@@ -58,10 +58,9 @@ int binarySearch(int* array, int alvo, int inicio, int final)
         }
     }
 
-    return 1;
+    return -1;
 }
 
-//TODO ordernar crescente (ta no decrecente)
 void bubbleSort(int* array, int len)
 {
     int aux = 0;
@@ -70,7 +69,7 @@ void bubbleSort(int* array, int len)
     {
         for(int j = 0; j < len; j++)
         {
-            if(array[i] > array[j])
+            if(array[i] < array[j])
             {
                 aux = array[j];
                 array[j] = array[i];
