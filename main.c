@@ -7,9 +7,12 @@ int binarySearch(int* array, int alvo, int inicio, int final);
 int main()
 {
     int numAlvo;
+    //armazena o resultado da busca
     int bResult = 0;
 
     int numeros[12] = {60, 50, 25, 10, 2, 1002, 90, 80, 70, 100, 2002};
+
+    //array length
     int numerosLen = sizeof(numeros)/sizeof(numeros[0]);
 
     printf("Antes do bubble sort: \n");
@@ -31,11 +34,14 @@ int main()
     else
     {
         printf("Valor encontrado. \n");
+        printf("Encontrado em: %d \n", bResult);
     }
 
     return 0;
 }
 
+// -1 - nao encontrado 
+// qualquer coisa - value pos
 int binarySearch(int* array, int alvo, int inicio, int final)
 {
     int meio;
